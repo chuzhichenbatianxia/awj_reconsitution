@@ -10,12 +10,13 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
 
 /**
- * shri认证
+ * shiro认证
  */
 public class UserRealm extends AuthorizingRealm{
 
@@ -24,9 +25,24 @@ public class UserRealm extends AuthorizingRealm{
     @Resource
     private SysUserService sysUserService;
 
+    @Value("#{configurer['sysAdminCode']}")
+    private String sysAdminCode;
+
+    /**
+     * 授权(验证权限时调用)
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+
+        try {
+            SysUser sysUser = (SysUser) principalCollection.getPrimaryPrincipal();
+            String userCode = sysUser.getUserCode();
+
+            return null;
+        } catch (Exception e) {
+            logger.error("获取权限目录错误"+e);
+            return null;
+        }
     }
 
     @Override
