@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>角色列表</title>
+    <% layout("/common/style.html"){ %>
+
+    <%}%>
+</head>
+<body>
+<div class="vbox">
+    <div class="content">
+        <div class="box">
+            <div class="p-10">
+                <form id="commentForm" role="form">
+                    <ul class="form-list">
+                        <div class="form-list-control">
+                            <%for(role in roleList){%>
+                            <div class="checkbox-inline">
+                                <% if(isEmpty(userRoleIdList) || !array.contain(userRoleIdList,role.roleId)){ %>
+                                <label><input type="checkbox" name="roleIds" value="${role.roleId}"> ${role.roleName}</label>
+                                <%}else{%>
+                                <label><input type="checkbox" name="roleIds" checked value="${role.roleId}"> ${role.roleName}</label>
+                                <%}%>
+                            </div>
+                            <%}%>
+                        </div>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%include("/common/footer.html"){}%>
+</div>
+</body>
+<%layout("/common/script.html"){ %>
+<script>
+    function getSelection() {
+        return $('#commentForm').serialize();
+    }
+</script>
+<%}%>
+</html>

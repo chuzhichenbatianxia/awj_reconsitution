@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/bootstrap-table/dist/bootstrap-table.css">
+    <link rel="stylesheet" href="../../libs/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../../libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../asset/styles/app.css">
+</head>
+<body>
+<div class="vbox">
+    <div class="header">
+        <div class="logo">
+            <img src="../../asset/images/logo.png">
+        </div>
+        <div class="header-right">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人中心</a></li>
+                        <li id="modifyPsw"><a href="#">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+                <li><i class="fa fa-cog"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <section class="hbox">
+            <aside class="sidebar aside">
+                <nav class="nav">
+                    <ul class="">
+                        <li class="nav-item"><a href="../icons/icons.html"><i class="fa fa-ravelry"></i> Icons</a> </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-item-title" data-toggle-target=".nav-sub-item">
+                                <i class="fa fa-ravelry"></i> 表单 <i class="fa fa-angle-double-right pull-right"></i>
+                            </a>
+                            <div class="nav-sub-item">
+                                <a href="../form/form.html"><i class="fa fa-bookmark-o"></i> 表单验证</a>
+                                <a href="../form/form-setting.html"><i class="fa fa-bookmark-o"></i> 设置规则</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="../layer/layer.html"><i class="fa fa-ravelry"></i> Layer</a> </li>
+                        <li class="nav-item"><a href="../table/table.html"><i class="fa fa-ravelry"></i> Table</a> </li>
+                        <li class="nav-item"><a href="../menu/menu.html"><i class="fa fa-ravelry"></i> 菜单分配</a> </li>
+                        <li class="nav-item"><a href="../tree/tree.html"><i class="fa fa-ravelry"></i> Tree</a> </li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="content">
+                <div class="box">
+                    <div class="breadCrumbs">
+                        <ul>
+                            <li><a href=""><i class="fa fa-home fa-lg"></i>Form</a> </li>
+                            <li class="active">form表单验证</li>
+                        </ul>
+                    </div>
+                    <div class="p-10">
+                        <form id="commentForm" role="form" novalidate>
+                            <div class="title dividing">
+                                <h4>基础设置</h4>
+                                <div class="btn-group">
+                                    <button id="btn-submit" type="submit" class="btn btn-info btn-sm">确认</button>
+                                    <button id="btn-cancel" type="button" class="btn btn-default btn-sm">取消</button>
+                                </div>
+                            </div>
+                            <ul class="form-list pull-left" style="margin: 0 90px;">
+                                <li>
+                                    <label>是否启用晚修设置<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableNightClass" value="0" checked required> 不启用</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableNightClass" value="1"> 启用</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>晚修后内宿生进出校<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="allowInnerLeaveSchool" value="0" checked required> 不允许</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="allowInnerLeaveSchool" value="1"> 允许</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>星期五晚上是否晚修<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableFridayNightClass" value="0" checked required> 不晚修</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableFridayNightClass" value="1"> 晚修</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>是否启用周六上课<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableStaturday" value="0" checked required> 不启用</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableStaturday" value="1"> 启用</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>周六上课方式<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="staturdayClassType" value="0" required> 上午</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="staturdayClassType" value="1"> 下午</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="staturdayClassType" value="3" checked> 上下午和晚上</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>是否启用周末进校<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableSunday" value="0" required> 不启用</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableSunday" value="1" checked> 启用</label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="form-list ">
+                                <li>
+                                    <label>周末是否晚修<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableSundayNight" value="0" required> 不晚修</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="enableSundayNight" value="1" checked> 晚修</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>是否只发送异常短信<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendOnlyAbnormal" value="0" checked required> 否</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendOnlyAbnormal" value="1"> 是</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>发送给学生<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToStudent" value="0" checked required> 不发送</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToStudent" value="1"> 发送</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>发送给教师<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToTeacher" value="0" checked required> 不发送</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToTeacher" value="1"> 发送</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>发送给家长<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToParent" value="0" checked required> 不发送</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToParent" value="1"> 发送</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>是否每次都发送短信<span class="required">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToParent" value="0" required> 间隔发送</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sendToParent" value="1" checked> 每次</label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="title dividing">
+                                <h4>时间设置</h4>
+                            </div>
+                            <ul class="form-list">
+                                <li>
+                                    <label>上午<span class="required">*</span></label>
+                                    <label>进校时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker1' value="06:00"> 至 <input class="input-w-120" type="text" id='datetimepicker1_1' value="08:30">
+                                    </div>
+                                    <label>放学时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker2' value="11:00"> 至 <input class="input-w-120" type="text" id='datetimepicker2_1' value="12:30">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>下午<span class="required">*</span></label>
+                                    <label>进校时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker3' value="12:40"> 至 <input class="input-w-120" type="text" id='datetimepicker3_1' value="14:00">
+                                    </div>
+                                    <label>放学时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker4' value="15:40"> 至 <input class="input-w-120" type="text" id='datetimepicker4_1' value="17:50">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>晚修<span class="required">*</span></label>
+                                    <label>进校时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker5' value="18:00"> 至 <input class="input-w-120" type="text" id='datetimepicker5_1' value="19:00">
+                                    </div>
+                                    <label>放学时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker6' value="22:00"> 至 <input class="input-w-120" type="text" id='datetimepicker6_1' value="23:00">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>早上<span class="required">*</span></label>
+                                    <label>离开宿舍时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker7' value="06:00"> 至 <input class="input-w-120" type="text" id='datetimepicker7_1' value="08:30">
+                                    </div>
+                                    <label>回宿舍时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker8' value="11:00"> 至 <input class="input-w-120" type="text" id='datetimepicker8_1' value="12:30">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>下午<span class="required">*</span></label>
+                                    <label>离开宿舍时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker9' value="12:40"> 至 <input class="input-w-120" type="text" id='datetimepicker9_1' value="14:30">
+                                    </div>
+                                    <label>回宿舍时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker10' value="15:40"> 至 <input class="input-w-120" type="text" id='datetimepicker10_1' value="17:50">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>晚修<span class="required">*</span></label>
+                                    <label>离开宿舍时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker11' value="18:00"> 至 <input class="input-w-120" type="text" id='datetimepicker11_1' value="19:00">
+                                    </div>
+                                    <label>回宿舍时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker12' value="22:00"> 至 <input class="input-w-120" type="text" id='datetimepicker12_1' value="23:00">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>周末<span class="required">*</span></label>
+                                    <label>进校时间</label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-120" type="text" id='datetimepicker13' value="06:00"> 至 <input class="input-w-120" type="text" id='datetimepicker13_1' value="18:00">
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <div class="footer">
+
+    </div>
+</div>
+</body>
+<script src="../../libs/jquery/dist/jquery.min.js"></script>
+<script src="../../libs/jquery-validation/dist/jquery.validate.js"></script>
+<script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../libs/bootstrap-table/dist/bootstrap-table.js"></script>
+<script src="../../libs/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../libs/moment/moment-with-locales.js"></script>
+<script src="../../libs/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../../libs/zTree_v3-master/js/jquery.ztree.all.js"></script>
+<script src="../../libs/layer/layer/layer.js"></script>
+<script src="../../libs/laydate/dist/laydate.js"></script>
+<script src="../../core/services/common.service.js"></script>
+<script src="../../core/services/layer.service.js"></script>
+<script src="../../core/services/layDate.service.js"></script>
+<script src="../../core/services/validate.service.js"></script>
+<script src="../../core/services/table.service.js"></script>
+<script src="../../core/services/tree.service.js"></script>
+<script src="../../core/services/ajax.js"></script>
+<script src="form-setting.js"></script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>智慧校园云教务</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="statics/css/login2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="height: 100%;">
+<!-----start-main---->
+<div class="main" id="rrapp" style="height: 97%;">
+    <div style="height:200px;"></div>
+    <div class="login-form" >
+        <h1>智慧校园后台管理系统</h1>
+        <div class="head">
+            <img src="statics/img/user.png" alt=""/>
+        </div>
+        <form>
+            <input type="text" class="text" v-model="username"  placeholder="用户名" value=""/>
+            <input type="password" value="密码" v-model="password" placeholder="密码" />
+            <div style="display: flex;float: left;">
+                <input type="text" class="text" placeholder="验证码" @keyup.enter="login"  v-model="captcha"  style="width:200px;display:inline;"  >
+                <img alt="点击刷新图片" style="cursor: pointer;width: 159px;height:45px;margin-left: 7px;border-radius: 5px;" class="pointer" :src="src" @click="refreshCode">
+            </div>
+            <div class="submit">
+                <input type="button"  value="登录" @click="login">
+                <input type="reset"  value="重置" >
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="copy-right" style="height:3%;background-color: #fff;">
+    <p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="#">楚河王者公司</a></p>
+</div>
+
+<%layout("/common/script.html"){ %>
+${scriptSection!}
+<%}%>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:'#rrapp',
+        data:{
+            username: '',
+            password: '',
+            captcha: '',
+            error: false,
+            errorMsg: '',
+            src: 'captcha.jpg'
+        },
+        beforeCreate: function(){
+            if(self != top){
+                top.location.href = self.location.href;
+            }
+        },
+        methods: {
+            refreshCode: function(){
+                this.src = "captcha.jpg?t=" + $.now();
+            },
+            login: function (event) {
+                var data = "username="+vm.username+"&password="+vm.password+"&captcha="+vm.captcha;
+                $.ajax({
+                    type: "POST",
+                    url: "/sso/login",
+                    data: data,
+                    dataType: "json",
+                    async:false,
+                    success: function(result){
+                        if(result.code == 0){//登录成功
+                            parent.location.href ='index.html';
+                        }else{
+                            vm.error = true;
+                            vm.errorMsg = result.msg;
+                            if(vm.errorMsg.indexOf("请重新刷新浏览器")!=-1){
+                                window.location.reload();
+                            }else{
+                                vm.refreshCode();
+                                alert( result.msg);
+                            }
+
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+</body>
+
+</html>

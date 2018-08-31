@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/bootstrap-table/dist/bootstrap-table.css">
+    <link rel="stylesheet" href="../../libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../asset/styles/app.css">
+</head>
+<body>
+<div class="vbox">
+    <div class="header">
+        <div class="logo">
+            <img src="../../asset/images/logo.png">
+        </div>
+        <div class="header-right">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人中心</a></li>
+                        <li id="modifyPsw"><a href="#">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+                <li><i class="fa fa-cog"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <section class="hbox">
+            <aside class="sidebar aside">
+                <nav class="nav">
+                    <ul class="">
+                        <li class="nav-item"><a href="../icons/icons.html"><i class="fa fa-ravelry"></i> Icons</a> </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-item-title" data-toggle-target=".nav-sub-item">
+                                <i class="fa fa-ravelry"></i> 表单 <i class="fa fa-angle-double-right pull-right"></i>
+                            </a>
+                            <div class="nav-sub-item">
+                                <a href="../form/form.html"><i class="fa fa-bookmark-o"></i> 表单验证</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="../layer/layer.html"><i class="fa fa-ravelry"></i> Layer</a> </li>
+                        <li class="nav-item"><a href="../table/table.html"><i class="fa fa-ravelry"></i> Table</a> </li>
+                        <li class="nav-item"><a href="../menu/menu.html"><i class="fa fa-ravelry"></i> 菜单分配</a> </li>
+                        <li class="nav-item"><a href="../tree/tree.html"><i class="fa fa-ravelry"></i> Tree</a> </li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="content">
+                <div class="box">
+                    <div class="breadCrumbs">
+                        <ul>
+                            <li><a href=""><i class="fa fa-home fa-lg"></i>树</a> </li>
+                            <li class="active">Tree</li>
+                        </ul>
+                    </div>
+                    <div class="p-10">
+                        <div class="title dividing">
+                            <h4>Tree</h4>
+                        </div>
+                        <div class="p-t-10">
+                            <ul id="treeDemo" class="ztree">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <div class="footer">
+
+    </div>
+</div>
+</body>
+<script src="../../libs/jquery/dist/jquery.min.js"></script>
+<script src="../../libs/jquery-validation/dist/jquery.validate.js"></script>
+<script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../libs/bootstrap-table/dist/bootstrap-table.js"></script>
+<script src="../../libs/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../libs/zTree_v3-master/js/jquery.ztree.all.js"></script>
+<script src="../../libs/layer/layer/layer.js"></script>
+<script src="../../libs/laydate/dist/laydate.js"></script>
+<script src="../../core/services/common.service.js"></script>
+<script src="../../core/services/layer.service.js"></script>
+<script src="../../core/services/layDate.service.js"></script>
+<script src="../../core/services/validate.service.js"></script>
+<script src="../../core/services/table.service.js"></script>
+<script src="../../core/services/tree.service.js"></script>
+<script src="../../core/services/ajax.js"></script>
+<script src="tree.js"></script>
+</html>

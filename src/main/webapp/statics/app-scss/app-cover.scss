@@ -1,0 +1,25 @@
+/*
+* 覆盖Bootstrap的样式
+* */
+.panel {
+  box-shadow: none;
+}
+.panel-default  {
+
+  >.panel-heading {
+    background-color: #F9FAFB;
+  }
+}
+.btn {
+  font-size: 1.2rem;
+}
+
+.ztree li {
+  line-height: 25px;
+}
+.ztree li a {
+  height: 30px;
+}
+.ztree li span {
+  line-height: 30px;
+}

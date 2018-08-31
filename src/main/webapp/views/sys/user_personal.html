@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <% layout("/common/style.html"){ %>
+
+    <%}%>
+</head>
+<body>
+<div class="vbox">
+    <div class="content">
+        <div class="box">
+            <div class="p-10">
+                <div class="p-t-10">
+                    <form id="commentForm" role="form">
+                        <input type="hidden" name="id" id="keyId" value="${user.userId!}"/>
+                        <ul class="form-list">
+                            <li>
+                                <label>用户名称<span class="required">*</span></label>
+                                <div class="form-list-control">
+                                    <input class="input-w-300" type="text" name="userName" id="userName" placeholder="用户名称" value="${user.userName!}" required />
+                                </div>
+                            </li>
+                            <li>
+                                <label>登录账号</label>
+                                <div class="form-list-control">
+                                    <input class="input-w-300" disabled type="text" name="account" placeholder="登录账号" value="${user.account!}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label>用户身份</label>
+                                <div class="form-list-control">
+                                    <select name="userType" id="userType" disabled>
+                                        <option value="1">学生</option>
+                                        <option value="2">教师</option>
+                                        <option value="3">家长</option>
+                                        <option value="4">客服</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <label>所在学校</label>
+                                <div class="form-list-control">
+                                    <input class="input-w-300" disabled type="text" name="schoolName" placeholder="所在学校" value="${user.schoolName!}" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include("/common/footer.html"){}%>
+</div>
+</body>
+<%layout("/common/script.html"){ %>
+<script>
+    $('#userType').val('${user.userType!4}');
+    function getValue() {
+        if($('#userName').val()=='')
+        {
+            Layer.error('用户名称不能为空');
+            return null;
+        }
+        return $('#commentForm').serialize();
+    }
+</script>
+<%}%>
+</html>

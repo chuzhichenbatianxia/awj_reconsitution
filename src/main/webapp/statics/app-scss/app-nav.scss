@@ -1,0 +1,139 @@
+
+$nav-default-bg: #F9FAFB;
+$nav-active-bg: #02BAE0;
+$nav-a-active: #fff;
+$nav-a-hover: #fff;
+$nav-a: #fff;
+$nav-default: #333;
+$nav-icon: #02BAE0;
+
+.header {
+  width: 100%;
+  height: 58px;
+  line-height: 58px;
+  color: $white-color;
+  background: $brand-primary;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, .1);
+
+  .logo {
+    display: inline-block;
+    padding-left: 20px;
+
+    img {
+      height: 30px;
+    }
+  }
+
+  .header-right {
+    display: inline-block;
+    float: right;
+    padding-right: 10px;
+
+    > ul {
+
+      > li {
+
+        > a {
+          display: block;
+          padding: 0 20px;
+          color: $white-color;
+
+          &:hover {
+            text-decoration: none;
+            background: darken($brand-primary, 5%);
+          }
+
+          i.fa {
+            font-size: 1.6rem;
+          }
+        }
+
+        .dropdown-menu {
+          left: inherit;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+.sidebar {
+  padding: 10px 0;
+  height: 100%;
+  background: $nav-default-bg;
+  border: 1px solid $border-color;
+  border-left: 4px solid darken($nav-default-bg, 6%);
+}
+
+.nav-item {
+  border-bottom: 1px solid #DCDCDC;
+
+  &.active {
+    > a {
+      color: $nav-a-active;
+      background: $nav-active-bg;
+    }
+
+    .fa {
+      color: $nav-a-active;
+    }
+  }
+
+  > a {
+    display: inline-block;
+    padding: 12px 10px;
+    width: 100%;
+    color: $nav-default;
+    background: #F2F5FA;
+
+    &:hover {
+      color: $nav-a-hover;
+      font-weight: bold;
+      text-decoration: none;
+      background: $nav-active-bg;
+
+      .fa {
+        color: $nav-a-active;
+      }
+    }
+  }
+
+  .fa {
+    color: $nav-icon;
+    margin-right: 5px;
+    font-size: 1.8rem;
+    vertical-align: middle;
+  }
+
+  .nav-item-title {
+
+    &:hover {
+      color: #fff;
+      background: $nav-active-bg;
+    }
+  }
+}
+
+
+.nav-sub-item {
+  display: none;
+  min-height: 120px;
+  background: #f3f5f9;
+
+  a {
+    display: inline-block;
+    padding: 8px 30px;
+    width: 100%;
+    color: $nav-default;
+
+    &:hover,
+    &.active {
+      color: $white-color;
+      text-decoration: none;
+      background: lighten($nav-active-bg, 2%);
+
+      .fa {
+        color: #fff;
+      }
+    }
+  }
+}

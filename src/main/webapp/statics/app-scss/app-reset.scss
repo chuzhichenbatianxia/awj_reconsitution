@@ -1,0 +1,101 @@
+* {
+  margin: 0; padding: 0; list-style: none;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%; /*避免字体被浏览器自动重置*/
+  -ms-text-size-adjust: 100%;
+  line-height: 1.15;
+  font-size: 62.5%;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;;
+}
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+  margin: 0;
+  padding: 0;
+}
+
+/*设置默认字体*/
+body,
+button, input, select, textarea {  /*for ie*/
+  //font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/** 重置列表元素 **/
+ul, ol { list-style: none; margin: 0;}
+
+/** 重置文本格式元素 **/
+a {
+  color: $brand-primary;
+  text-decoration: none;
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: darken($brand-primary, 5%);
+    text-decoration: underline;
+  }
+
+  &:active {
+    outline: 0;
+  }
+}
+
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+input, textarea {
+
+  &::-moz-placeholder,
+  &::-ms-input-placeholder,
+  &::-webkit-input-placeholder {
+    color: #ccc;
+  }
+}
+label {
+  margin-bottom: 3px;
+  font-weight: normal;
+}
+
+/** 重置表格元素 **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th, td {
+    padding: 0;
+  }
+}
+
+/*html5新增元素兼容性处理*/
+article, aside, section, details, summary, figure, figcaption, footer, header, meter, nav {
+  display: block;
+}
+audio, video, canvas,progress, mark, ruby, time {
+  display: inline-block;
+}
+
+

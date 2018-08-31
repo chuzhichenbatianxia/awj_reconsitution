@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑树结构</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/bootstrap-table/dist/bootstrap-table.css">
+    <link rel="stylesheet" href="../../libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../asset/styles/app.css">
+</head>
+<body>
+<div id="id" class="p-t-20">
+    <form role="form">
+        <ul class="form-list">
+            <li>
+                <label>学校名称</label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="schoolName" placeholder="请输入学校名称" autofocus>
+                </div>
+            </li>
+            <li>
+                <label>学校地址</label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="schoolAddress" placeholder="请输入学校地址">
+                </div>
+            </li>
+            <li>
+                <label>地市</label>
+                <div class="form-list-control">
+                    <div class="select-group">
+                        <select>
+                            <option value="">梅州市</option>
+                            <option value="">河源市</option>
+                        </select>
+                        <select>
+                            <option value="">梅县区</option>
+                            <option value="">梅江区</option>
+                        </select>
+                        <select>
+                            <option value="">程江镇</option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+<script src="../../libs/jquery/dist/jquery.min.js"></script>
+<script src="../../libs/jquery-validation/dist/jquery.validate.js"></script>
+<script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../libs/bootstrap-table/dist/bootstrap-table.js"></script>
+<script src="../../libs/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../libs/zTree_v3-master/js/jquery.ztree.all.js"></script>
+<script src="../../libs/layer/layer/layer.js"></script>
+<script src="../../libs/laydate/dist/laydate.js"></script>
+<script src="../../core/services/common.service.js"></script>
+<script src="../../core/services/layer.service.js"></script>
+<script src="../../core/services/layDate.service.js"></script>
+<script src="../../core/services/validate.service.js"></script>
+<script src="../../core/services/table.service.js"></script>
+<script src="../../core/services/tree.service.js"></script>
+<script src="../../core/services/ajax.js"></script>
+<script src="tree_edit.js"></script>
+</html>

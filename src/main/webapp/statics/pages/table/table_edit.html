@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/bootstrap-table/dist/bootstrap-table.css">
+    <link rel="stylesheet" href="../../libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../asset/styles/app.css">
+</head>
+<body>
+<div class="vbox">
+    <div class="header">
+        <div class="logo">
+            <img src="../../asset/images/logo.png">
+        </div>
+        <div class="header-right">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人中心</a></li>
+                        <li id="modifyPsw"><a href="#">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+                <li><i class="fa fa-cog"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <section class="hbox">
+            <aside class="sidebar aside">
+                <nav class="nav">
+                    <ul class="">
+                        <li class="nav-item"><a href="../icons/icons.html"><i class="fa fa-ravelry"></i> Icons</a> </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-item-title" data-toggle-target=".nav-sub-item">
+                                <i class="fa fa-ravelry"></i> 表单 <i class="fa fa-angle-double-right pull-right"></i>
+                            </a>
+                            <div class="nav-sub-item">
+                                <a href="../form/form.html"><i class="fa fa-bookmark-o"></i> 表单验证</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="../layer/layer.html"><i class="fa fa-ravelry"></i> Layer</a> </li>
+                        <li class="nav-item"><a href="../table/table.html"><i class="fa fa-ravelry"></i> Table</a> </li>
+                        <li class="nav-item"><a href="../menu/menu.html"><i class="fa fa-ravelry"></i> 菜单分配</a> </li>
+                        <li class="nav-item"><a href="../tree/tree.html"><i class="fa fa-ravelry"></i> Tree</a> </li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="content">
+                <div class="box">
+                    <div class="breadCrumbs">
+                        <ul>
+                            <li><a href=""><i class="fa fa-home fa-lg"></i>表格</a> </li>
+                            <li class="active">Table</li>
+                        </ul>
+                    </div>
+                    <div class="p-10">
+                    <div class="title dividing">
+                        <h4>Table</h4>
+                    </div>
+                    <div class="p-t-10">
+                        <form id="commentForm" role="form">
+                            <ul class="form-list">
+                                <li>
+                                    <label>学校名称<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-300" type="text" name="schoolName" placeholder="请输入学校名称" autofocus required>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>学校地址<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-300" type="text" name="schoolAddress" placeholder="请输入学校地址" required>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>学校联系方式<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-300" type="number" name="schoolPhone" placeholder="请输入学校联系方式" required>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>学校邮箱<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <input class="input-w-300" type="email" name="schoolEmail" placeholder="请输入学校邮箱" required>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>地市<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="select-group">
+                                            <select name="shi">
+                                                <option value="">梅州市</option>
+                                                <option value="">河源市</option>
+                                            </select>
+                                            <select name="qu">
+                                                <option value="">梅县区</option>
+                                                <option value="">梅江区</option>
+                                            </select>
+                                            <select name="zheng">
+                                                <option value="">程江镇</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>学制<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="checkbox-inline">
+                                            <label><input type="checkbox" name="systme"> 三年制</label>
+                                        </div>
+                                        <div class="checkbox-inline">
+                                            <label><input type="checkbox" name="systme"> 四年制</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>教育阶段<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="checkbox-inline">
+                                            <label><input type="checkbox" name="stage"> 幼儿园</label>
+                                        </div>
+                                        <div class="checkbox-inline">
+                                            <label><input type="checkbox" name="stage"> 小学</label>
+                                        </div>
+                                        <div class="checkbox-inline">
+                                            <label><input type="checkbox" name="stage"> 初中</label>
+                                        </div>
+                                        <div class="checkbox-inline">
+                                            <label><input type="checkbox" name="stage"> 高中</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>性别<span class="requied">*</span></label>
+                                    <div class="form-list-control">
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sex" required> 男</label>
+                                        </div>
+                                        <div class="radio-inline">
+                                            <label><input type="radio" name="sex"> 女</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>备注</label>
+                                    <div class="form-list-control">
+                                        <textarea class="textarea-sm"></textarea>
+                                    </div>
+                                </li>
+                                <li class="form-list-btn">
+                                    <button id="btn-submit" type="submit" class="btn btn-info btn-sm">确认</button>
+                                    <button id="btn-cancel" type="button" class="btn btn-default btn-sm">取消</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <div class="footer">
+
+    </div>
+</div>
+</body>
+<script src="../../libs/jquery/dist/jquery.min.js"></script>
+<script src="../../libs/jquery-validation/dist/jquery.validate.js"></script>
+<script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../libs/bootstrap-table/dist/bootstrap-table.js"></script>
+<script src="../../libs/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../libs/zTree_v3-master/js/jquery.ztree.all.js"></script>
+<script src="../../libs/layer/layer/layer.js"></script>
+<script src="../../libs/laydate/dist/laydate.js"></script>
+<script src="../../core/services/common.service.js"></script>
+<script src="../../core/services/layer.service.js"></script>
+<script src="../../core/services/layDate.service.js"></script>
+<script src="../../core/services/validate.service.js"></script>
+<script src="../../core/services/table.service.js"></script>
+<script src="../../core/services/tree.service.js"></script>
+<script src="../../core/services/ajax.js"></script>
+<script src="table_edit.js"></script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/bootstrap-table/dist/bootstrap-table.css">
+    <link rel="stylesheet" href="../../libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../asset/styles/app.css">
+</head>
+<body>
+    <p class="modal-title">请先登录</p>
+    <div class="login login-modal">
+        <form id="commentForm" role="form">
+            <ul class="form-list">
+                <li>
+                    <!--<label>请输入账号<span class="requied">*</span></label>-->
+                    <div class="form-list-control">
+                        <input type="text" name="username" placeholder="请输入账号" required autofocus>
+                    </div>
+                </li>
+                <li>
+                    <!--<label>请输入密码<span class="requied">*</span></label>-->
+                    <div class="form-list-control">
+                        <input type="password" name="password" placeholder="请输入密码" required>
+                    </div>
+                </li>
+                <li>
+                    <!--<label>学校名称<span class="requied">*</span></label>-->
+                    <div class="form-list-control">
+                        <input type="text" name="checkcode" placeholder="请输入验证码" required>
+                        <img class="checkcode" src="" alt="验证码" >
+                    </div>
+                </li>
+                <li><button type="submit" id="login">登录</button></li>
+            </ul>
+        </form>
+        <!--<form name="login-modal" id="login-modal">-->
+            <!--<ul class="loginWrap">-->
+                <!--<li><input type="text" name="username" placeholder="请输入账号" required autofocus> </li>-->
+                <!--<li><input type="password" name="password" placeholder="请输入密码" required></li>-->
+                <!--<li class="checkcode-group">-->
+                    <!--<input type="text" name="checkcode" placeholder="请输入验证码" required>-->
+                    <!--<img class="checkcode" src="" alt="验证码" >-->
+                <!--</li>-->
+                <!--<li class="warningTip"></li>-->
+                <!--<li><button type="submit" id="login">登录</button></li>-->
+            <!--</ul>-->
+        <!--</form>-->
+    </div>
+</div>
+</body>
+<script src="../../libs/jquery/dist/jquery.min.js"></script>
+<script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../libs/bootstrap-table/dist/bootstrap-table.js"></script>
+<script src="../../libs/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../libs/layer/layer/layer.js"></script>
+<script src="../../core/services/layer.service.js"></script>
+<script src="../../core/services/ajax.js"></script>
+<script src="login.js"></script>
+</html>

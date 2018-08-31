@@ -1,0 +1,24 @@
+<nav class="nav">
+    <% if(isNotEmpty(menuList)){ %>
+        <ul class="">
+            <% for(menu in menuList){ %>
+            <li class="nav-item">
+                <% if(menu.type==0){ %>
+                    <% if(isNotEmpty(menu.subMenu)){ %>
+                    <a href="javascript:void(0);" class="nav-item-title" data-toggle-target=".nav-sub-item"><i class="${menu.icon!}"></i>${menu.name!}<i class="fa fa-angle-double-right pull-right"></i></a>
+                    <div class="nav-sub-item">
+                        <% for(item in menu.subMenu){ %>
+                        <a  href="${ctxPath}/${item.url!}" target="${item.target!}"><i class="${item.icon!}"></i> ${item.name!}</a>
+                        <%}%>
+                    </div>
+                    <%}else{%>
+                    <a href="javascript:void(0);" class="nav-item-title" ><i class="${menu.icon!}"></i>${menu.name!}</a>
+                    <%}%>
+                <% } else{ %>
+                <a href="${ctxPath}/${menu.url!}" target="${menu.target!}" class="nav-item-title" ><i class="${menu.icon!}"></i>${menu.name!}</a>
+                <%}%>
+            </li>
+            <%}%>
+        </ul>
+    <%}%>
+</nav>

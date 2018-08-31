@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字典</title>
+    <% layout("/common/style.html"){ %>
+
+    <%}%>
+</head>
+<body>
+<div class="vbox">
+    <div class="content">
+        <div class="box">
+            <div class="p-10">
+                <div class="p-t-10">
+                    <form id="commentForm" role="form">
+                        <input type="hidden" name="id" id="keyId" value="${dictionary.id!}"/>
+                        <input type="hidden" name="level" value="${dictionary.level!}"/>
+                        <input type="hidden" name="parentId" value="${dictionary.parentId!}"/>
+                        <ul class="form-list">
+                            <li>
+                                <label>字典名称<span class="required">*</span></label>
+                                <div class="form-list-control">
+                                    <input class="input-w-300" type="text" name="dictText" id="dictText" placeholder="字典名称" value="${dictionary.dictText!}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label>字典值<span class="required">*</span></label>
+                                <div class="form-list-control">
+                                    <input class="input-w-300" type="text" name="dictValue" id="dictValue" placeholder="字典值" value="${dictionary.dictValue!}" />
+                                </div>
+                            </li>
+                            <li>
+                                <label>排序</label>
+                                <div class="form-list-control">
+                                    <input class="input-w-300" type="text" name="orderNo" id="orderNo" placeholder="排序" value="${dictionary.orderNo!}" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include("/common/footer.html"){}%>
+</div>
+</body>
+<%layout("/common/script.html"){ %>
+<script>
+    function getValue() {
+        if(!$('#dictText').val())
+        {
+            layer.msg('字典名称不能为空', {icon: 2,time:1000});
+            return null;
+        }
+        if(!$('#dictValue').val())
+        {
+            layer.msg('字典值不能为空', {icon: 2,time:1000});
+            return null;
+        }
+        return $('#commentForm').serialize();
+    }
+</script>
+<%}%>
+</html>

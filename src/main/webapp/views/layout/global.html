@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${title!"智慧校园考勤系统"}</title>
+    <% layout("/common/style.html"){ %>
+    ${headSection!}
+    <%}%>
+</head>
+<body>
+<div class="vbox">
+    <%include("/common/header.html"){}%>
+    <div class="content">
+        <section class="hbox">
+            <aside class="sidebar aside">
+                <%include("/common/menu.html"){}%>
+            </aside>
+            <section class="content">
+                <div class="box">
+                    ${navSection!}
+                    <% layout("/common/content.html"){%>
+                    ${contentSection!}
+                    <%}%>
+                </div>
+            </section>
+        </section>
+    </div>
+    <%include("/common/footer.html"){}%>
+</div>
+</body>
+<%layout("/common/script.html"){ %>
+${scriptSection!}
+<%}%>
+</html>

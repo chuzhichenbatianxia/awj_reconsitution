@@ -1,0 +1,44 @@
+<%
+//标题
+var title="智慧校园考勤系统";
+%>
+
+<%
+//head模板，包含基础的样式，可以额外添加样式表和其他标签头
+var headSection={ %>
+<!--附加的头文件开始-->
+<!--附加的头文件结束-->
+<%};%>
+
+<%
+//导航栏模板，不用导航栏的可以去掉
+var navSection={
+%>
+<!--导航栏开始-->
+<% layout("/common/nav.html"){%>
+<li>SQL监控</li>
+<%}%>
+<!--导航栏结束-->
+<%};%>
+
+<%
+//右侧正文模板
+var contentSection={ %>
+<!--正文开始-->
+<iframe src="${ctxPath}/druid/sql.html" width="100%" height="700px"  frameborder="0"></iframe>
+<!--正文结束-->
+<%};%>
+
+<%
+//脚本模板，包含基础的脚本
+var scriptSection={
+%>
+<!--引入脚本开始-->
+<script src="${ctxPath}/statics/js/sys/menu.js?v=${date().time}"></script>
+<!--引入脚本结束-->
+<%};%>
+
+<%
+//引入模板页
+include("/layout/global.html",{"title":title,"headSection":headSection,"navSection":navSection,"contentSection":contentSection,"scriptSection":scriptSection}){}
+%>

@@ -1,0 +1,138 @@
+<%
+//标题
+var title="智慧校园考勤系统";
+%>
+
+<%
+//head模板，包含基础的样式，可以额外添加样式表和其他标签头
+var headSection={ %>
+<!--附加的头文件开始-->
+<!--附加的头文件结束-->
+<%};%>
+
+<%
+//导航栏模板，不用导航栏的可以去掉
+var navSection={
+%>
+<!--导航栏开始-->
+<% layout("/common/nav.html"){%>
+<li><a href="${ctxPath}/sys/menu.html">菜单管理</a></li>
+<%
+var name="";
+if(isAdd)
+{
+    name="新增";
+}
+else
+{
+    name="编辑";
+}
+%>
+<li>${name}</li>
+
+
+<%}%>
+<!--导航栏结束-->
+<%};%>
+
+<%
+//右侧正文模板
+var contentSection={ %>
+<!--正文开始-->
+<div class="p-t-10">
+    <form id="commentForm" role="form">
+        <input type="hidden" name="menuId" value="${menu.menuId!}" id="keyId" />
+        <ul class="form-list">
+            <li>
+                <label>类型</label>
+                <div class="form-list-control">
+                    <div class="radio-inline">
+                        <label><input type="radio" name="type" value="0"> 目录</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="type" value="1"> 页面</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="type" value="2"> 按钮</label>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label>菜单名称<span class="required">*</span></label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="name" placeholder="菜单或者按钮名称" value="${menu.name!}"  required/>
+                </div>
+            </li>
+            <li>
+                <label>上级菜单</label>
+                <div class="form-list-control">
+                    <input class="input-w-300 input-select" id="parentName" type="text" name="parentName" placeholder="" value="${menu.parentName!'顶级菜单'}" />
+                    <input type="hidden" name="parentId" id="parentId"  value="${menu.parentId!'0'}" />
+                </div>
+            </li>
+            <li id="t_url">
+                <label>菜单URL</label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="url" placeholder="菜单URL" value="${menu.url!}" />
+                </div>
+            </li>
+            <li id="t_perms">
+                <label>授权标识</label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="perms" placeholder="授权标识" value="${menu.perms!}" />
+                </div>
+            </li>
+            <li id="t_target">
+                <label>打开方式</label>
+                <div class="form-list-control">
+                    <select name="target">
+                        <option value="_self">_self</option>
+                        <option value="_blank">_blank</option>
+                    </select>
+                </div>
+            </li>
+            <li id="t_icon">
+                <label>图标</label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="icon" placeholder="图标" value="${menu.icon!}" />
+                </div>
+            </li>
+            <li>
+                <label>排序号</label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="number" name="orderNo" placeholder="排序号" value="${menu.orderNo!}" />
+                </div>
+            </li>
+            <li class="form-list-btn">
+                <%if(shiro.hasPermission("sys:menu:add") || shiro.hasPermission("sys:menu:edit")){%>
+                <button id="btn-submit" type="submit" class="btn btn-info btn-sm">确认</button>
+                <%}%>
+                <button id="btn-cancel" type="button" class="btn btn-default btn-sm">取消</button>
+            </li>
+        </ul>
+    </form>
+</div>
+<!--正文结束-->
+<%};%>
+
+<%
+//脚本模板，包含基础的脚本
+var scriptSection={
+%>
+<!--引入脚本开始-->
+<script src="${ctxPath}/statics/js/sys/menu_add.js?v=${date().time}"></script>
+<script>
+    function init() {
+        $('#target').val('${menu.target!"_blank"}');
+        $(":radio[name='type'][value='${menu.type!1}']").prop("checked", "checked");
+        changeType('${menu.type!1}');
+    }
+    init();
+</script>
+<!--引入脚本结束-->
+<%};%>
+
+<%
+//引入模板页
+include("/layout/global.html",{"title":title,"headSection":headSection,"navSection":navSection,"contentSection":contentSection,"scriptSection":scriptSection}){}
+%>

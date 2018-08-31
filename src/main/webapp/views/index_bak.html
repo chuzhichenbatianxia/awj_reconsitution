@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <% layout("common/style.html"){ %> 
+    <style>
+        .ttt{
+            
+        }
+    </style>
+    <%}%>
+</head>
+<body>
+<div class="vbox">
+    <%include("common/header.html"){}%>
+    <div class="content">
+        <section class="hbox">
+            <aside class="sidebar aside">
+               <%include("common/menu.html"){}%>
+            </aside>
+            <section class="content">
+                这里是正文内容~~~~~
+            </section>
+        </section>
+    </div>
+    <%include("common/footer.html"){}%>
+</div>
+</body>
+<%layout("common/script.html"){ %>
+<script>
+    function test() {
+        
+    }
+</script>
+<%}%>
+</html>

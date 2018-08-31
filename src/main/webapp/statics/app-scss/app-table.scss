@@ -1,0 +1,48 @@
+.table {
+  margin: 10px 0;
+  width: 100%;
+
+  text-align: left;
+  border-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: $white-color;
+
+  thead {
+
+    th {
+      padding: 8px 10px;
+      font-size: 1.4rem;
+      font-weight: normal;
+      border-bottom: 1px solid $border-color;
+      background: #F9FAFB;
+    }
+  }
+  tbody {
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+.pagination {
+
+  li {
+    margin: 0 5px;
+
+    span.iconfont {
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .page {
+
+      > input {
+        padding: 4px 10px;
+        width: 50px;
+        text-align: right;
+      }
+    }
+  }
+}

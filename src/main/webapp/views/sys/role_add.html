@@ -1,0 +1,99 @@
+<%
+//标题
+var title="智慧校园考勤系统";
+%>
+
+<%
+//head模板，包含基础的样式，可以额外添加样式表和其他标签头
+var headSection={ %>
+<!--附加的头文件开始-->
+<!--附加的头文件结束-->
+<%};%>
+
+<%
+//导航栏模板，不用导航栏的可以去掉
+var navSection={
+%>
+<!--导航栏开始-->
+<% layout("/common/nav.html"){%>
+<li><a href="${ctxPath}/sys/role.html">角色管理</a></li>
+<%
+var name="";
+if(isAdd)
+{
+    name="新增";
+}
+else
+{
+    name="编辑";
+}
+%>
+<li>${name}</li>
+
+
+<%}%>
+<!--导航栏结束-->
+<%};%>
+
+<%
+//右侧正文模板
+var contentSection={ %>
+<!--正文开始-->
+<div class="p-t-10">
+    <form id="commentForm" role="form">
+        <input type="hidden" name="roleId" value="${role.roleId!}" id="keyId" />
+        <ul class="form-list">
+            <li>
+                <label>角色名称<span class="required">*</span></label>
+                <div class="form-list-control">
+                    <input class="input-w-300" type="text" name="roleName" placeholder="角色名称" value="${role.roleName!}"  required/>
+                </div>
+            </li>
+            <li>
+                <label>允许删除</label>
+                <div class="form-list-control">
+                    <div class="radio-inline">
+                        <label><input type="radio" name="status" value="0"> 不允许</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="status" value="1"> 允许</label>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label>备注</label>
+                <div class="form-list-control">
+                    <textarea class="textarea-sm" name="remark">${role.remark!}</textarea>
+                </div>
+            </li>
+            <li class="form-list-btn">
+                <%if(shiro.hasPermission("sys:role:add") || shiro.hasPermission("sys:role:edit")){%>
+                <button id="btn-submit" type="submit" class="btn btn-info btn-sm">确认</button>
+                <%}%>
+                <button id="btn-cancel" type="button" class="btn btn-default btn-sm">取消</button>
+            </li>
+        </ul>
+    </form>
+</div>
+<!--正文结束-->
+<%};%>
+
+<%
+//脚本模板，包含基础的脚本
+var scriptSection={
+%>
+<!--引入脚本开始-->
+<script src="${ctxPath}/statics/js/sys/role_add.js?v=${date().time}"></script>
+<script>
+    function init() {
+        $(":radio[name='status'][value='${role.status!1}']").prop("checked", "checked");
+    }
+    init();
+</script>
+<!--引入脚本结束-->
+<%};%>
+
+<%
+//引入模板页
+include("/layout/global.html",{"title":title,"headSection":headSection,"navSection":navSection,"contentSection":contentSection,"scriptSection":scriptSection}){}
+%>

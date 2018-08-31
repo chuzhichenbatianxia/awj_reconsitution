@@ -1,0 +1,59 @@
+//.btn {
+//  display: inline-block;
+//  margin-bottom: 0;
+//  padding: 6px 12px;
+//  line-height: 1.42857143;
+//  font-size: 1.4rem;
+//  font-weight: 400;
+//  text-align: center;
+//  white-space: nowrap;
+//  vertical-align: middle;
+//  cursor: pointer;
+//  border: 1px solid transparent;
+//  border-radius: 3px;
+//  -webkit-user-select: none;
+//  -moz-user-select: none;
+//  -ms-user-select: none;
+//  user-select: none;
+//
+//  .active, :active {
+//    background-image: none;
+//    outline: 0;
+//    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+//    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+//  }
+//
+//  .focus, :focus, :hover {
+//    color: #333;
+//    text-decoration: none;
+//  }
+//}
+//@mixin btn-color($bg-color, $border-color, $text-color: #fff) {
+//  color: $text-color;
+//  background-color: $bg-color;
+//  border-color: $border-color;
+//
+//  &:hover {
+//    color: $text-color;
+//    background-color: darken($bg-color, 8%);
+//    border-color: darken($border-color, 8%);
+//  }
+//}
+////.btn-default {
+////  @include btn-color($brand-default, darken($brand-default, 4%));
+////}
+////.btn-success {
+////  @include btn-color($brand-success, darken($brand-success, 4%));
+////}
+////.btn-info {
+////  @include btn-color($brand-info, darken($brand-info, 4%));
+////}
+////.btn-warning {
+////  @include btn-color($brand-warning, darken($brand-warning, 4%));
+////}
+////.btn-danger {
+////  @include btn-color($brand-danger, darken($brand-danger, 4%));
+////}
+////.btn-light {
+////  @include btn-color($brand-light, darken($brand-light, 4%), $text-color);
+////}
