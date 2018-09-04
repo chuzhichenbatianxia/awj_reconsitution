@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author chuyu
@@ -21,5 +22,10 @@ public class SysUserServiceImpl implements SysUserService{
     @Override
     public SysUser queryByUserCode(String userCode) throws SQLException {
         return sysUserDao.queryByUserCode(userCode);
+    }
+
+    @Override
+    public List<String> queryAllPerms(String userCode) throws SQLException {
+        return sysUserDao.queryAllPerms(userCode);
     }
 }

@@ -17,7 +17,7 @@ public class CacheFactory {
     private Map<String,Cache> map;
 
     public CacheFactory() {
-        map = new HashMap<>();
+        map = new HashMap<String, Cache>();
     }
 
     public Cache getCache(String cacheId){

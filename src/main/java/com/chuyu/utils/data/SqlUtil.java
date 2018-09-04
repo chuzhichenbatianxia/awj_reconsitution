@@ -686,7 +686,8 @@ public final class SqlUtil {
 		StringBuilder sb = new StringBuilder(2 + vs * 2);
 		char c = 0;
 		sb.append('\'');
-		for (int i = 0; i < vs; i++) { // 防止sql注入
+		// 防止sql注入
+		for (int i = 0; i < vs; i++) {
 			c = v.charAt(i);
 			if ('\'' == c) {
 				sb.append('\'');

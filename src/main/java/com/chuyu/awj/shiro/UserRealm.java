@@ -1,8 +1,14 @@
 package com.chuyu.awj.shiro;
 
+import com.chuyu.awj.cache.CacheFactory;
+import com.chuyu.awj.constants.CacheBeanId;
+import com.chuyu.awj.constants.CacheKey;
+import com.chuyu.awj.model.sys.SysMenu;
 import com.chuyu.awj.model.sys.SysUser;
+import com.chuyu.awj.service.sys.SysMenuService;
 import com.chuyu.awj.service.sys.SysUserService;
 import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -14,6 +20,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.*;
 
 /**
  * shiro认证
@@ -25,8 +32,14 @@ public class UserRealm extends AuthorizingRealm{
     @Resource
     private SysUserService sysUserService;
 
-    @Value("#{configurer['sysAdminCode']}")
+    @Value("#{properties['sysAdminCode']}")
     private String sysAdminCode;
+
+    @Resource
+    private CacheFactory cacheFactory;
+
+    @Resource
+    private SysMenuService sysMenuService;
 
     /**
      * 授权(验证权限时调用)
@@ -37,8 +50,35 @@ public class UserRealm extends AuthorizingRealm{
         try {
             SysUser sysUser = (SysUser) principalCollection.getPrimaryPrincipal();
             String userCode = sysUser.getUserCode();
-
-            return null;
+            SimpleAuthorizationInfo info = cacheFactory.getCache(CacheBeanId.PermCache).get(CacheKey.USER_PERMS_CACHE+userCode);
+            if (info!=null){
+                return info;
+            }
+            List<String> permsList = null;
+            //系统管理员拥有最高权限
+            if (userCode.equals(sysAdminCode)){
+                List<SysMenu> menuList = sysMenuService.queryListParentId(null);
+                permsList = new ArrayList<>(menuList.size());
+                for (SysMenu sysMenu:menuList) {
+                    permsList.add(sysMenu.getPerms());
+                }
+            }else {
+                permsList = sysUserService.queryAllPerms(userCode);
+            }
+            /**
+             * 用户权限列表
+             */
+            Set<String> permsSet = new HashSet<>();
+            for (String perms:permsList) {
+                if (StringUtils.isBlank(perms)){
+                    continue;
+                }
+                permsSet.addAll(Arrays.asList(perms.trim().split(",")));
+            }
+            info = new SimpleAuthorizationInfo();
+            info.setStringPermissions(permsSet);
+            cacheFactory.getCache(CacheBeanId.PermCache).put(CacheKey.USER_PERMS_CACHE+userCode,info);
+            return info;
         } catch (Exception e) {
             logger.error("获取权限目录错误"+e);
             return null;
