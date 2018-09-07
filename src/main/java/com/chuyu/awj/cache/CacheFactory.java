@@ -30,7 +30,7 @@ public class CacheFactory {
                 map.put(cacheId,new CacheImpl(ehcache));
             }
         }
-        return null;
+        return map.get(cacheId);
     }
 
 }

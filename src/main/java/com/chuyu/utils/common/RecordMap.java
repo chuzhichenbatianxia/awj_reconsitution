@@ -1,5 +1,9 @@
 package com.chuyu.utils.common;
 
+
+import com.chuyu.awj.dao.sys.SysMenuDao;
+
+import javax.annotation.Resource;
 import java.util.LinkedHashMap;
 
 /**
@@ -61,10 +65,10 @@ public class RecordMap extends LinkedHashMap<String,Object>{
 
     public static void main(String[] args) {
         RecordMap recordMap = new RecordMap();
-        int a = 989;
+        Integer a = new Integer(989);
         int b = 988;
+        recordMap.putObj("bbb",a);
 
-        recordMap.putObj("bbb",a,b);
     }
 
 }

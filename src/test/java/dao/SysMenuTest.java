@@ -17,7 +17,7 @@ public class SysMenuTest extends Tester{
     @Test
     public void test() throws SQLException {
         System.out.println(null instanceof Number);
-        sysMenuService.queryListParentId();
+        sysMenuService.queryListByParentId(null);
     }
 
 

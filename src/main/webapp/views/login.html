@@ -36,10 +36,10 @@
 <div class="copy-right" style="height:3%;background-color: #fff;">
     <p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="#">楚河王者公司</a></p>
 </div>
-
 <%layout("/common/script.html"){ %>
 ${scriptSection!}
 <%}%>
+<script src="${ctxPath}/statics/libs/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
         el:'#rrapp',
@@ -64,7 +64,7 @@ ${scriptSection!}
                 var data = "username="+vm.username+"&password="+vm.password+"&captcha="+vm.captcha;
                 $.ajax({
                     type: "POST",
-                    url: "/sso/login",
+                    url: "sso/login",
                     data: data,
                     dataType: "json",
                     async:false,

@@ -31,7 +31,6 @@ var contentSection={ %>
                 <h4>快速入口</h4>
             </div>
             <ul class="fastEnterLists clearfix">
-                <%if(shiro.hasPermission("base:datacount:page")){%>
                 <li>
                     <a href="${ctxPath}/base/datacount.html">
                         <p class="fast-menu-sub">数据统计</p>
@@ -39,8 +38,6 @@ var contentSection={ %>
                         <i class="fa fa-ravelry"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:record:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/record.html">
                         <p class="fast-menu-sub">考勤信息</p>
@@ -48,8 +45,6 @@ var contentSection={ %>
                         <i class="fa fa-address-card"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:errorlog:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/errorlog.html">
                         <p class="fast-menu-sub">考勤错误日志</p>
@@ -57,8 +52,6 @@ var contentSection={ %>
                         <i class="fa fa-cubes"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:card:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/card.html">
                         <p class="fast-menu-sub">考勤卡管理</p>
@@ -66,8 +59,6 @@ var contentSection={ %>
                         <i class="fa fa-support"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:machine:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/machine.html">
                         <p class="fast-menu-sub">考勤机管理</p>
@@ -75,8 +66,6 @@ var contentSection={ %>
                         <i class="fa fa-university"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:rule:student:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/ruleStudent.html">
                         <p class="fast-menu-sub">学生考勤规则</p>
@@ -84,8 +73,6 @@ var contentSection={ %>
                         <i class="fa fa-braille"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:summary:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/summary.html">
                         <p class="fast-menu-sub">考勤统计</p>
@@ -93,8 +80,6 @@ var contentSection={ %>
                         <i class="fa fa-folder-open-o"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:custom:school:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/customschool.html">
                         <p class="fast-menu-sub">客服学校关联</p>
@@ -102,8 +87,6 @@ var contentSection={ %>
                         <i class="fa fa-industry"></i>
                     </a>
                 </li>
-                <%}%>
-                <%if(shiro.hasPermission("attend:syntool:page")){%>
                 <li>
                     <a href="${ctxPath}/attend/synTool.html">
                         <p class="fast-menu-sub">同步工具</p>
@@ -111,7 +94,6 @@ var contentSection={ %>
                         <i class="fa fa-line-chart"></i>
                     </a>
                 </li>
-                <%}%>
             </ul>
         </div>
     </div>

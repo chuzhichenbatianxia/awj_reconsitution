@@ -1,5 +1,6 @@
 package com.chuyu.awj.controller;
 
+import com.chuyu.awj.aop.ImportMenu;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,12 +17,20 @@ public class SysRouterController {
     }
 
     @RequestMapping("/index.html")
+    @ImportMenu
     public String index(){
         return "index.html";
     }
 
     @RequestMapping("/index")
+    @ImportMenu
     public String indexPage(){
+        return "index.html";
+    }
+
+    @RequestMapping("/")
+    @ImportMenu
+    public String homePage(){
         return "index.html";
     }
 }

@@ -1,5 +1,6 @@
 package dao;
 
+import com.chuyu.awj.dao.sys.SysMenuDao;
 import com.chuyu.awj.model.sys.SysUser;
 import com.chuyu.awj.service.sys.SysUserService;
 import org.junit.Test;
@@ -24,5 +25,13 @@ public class SysUsetTest extends Tester {
         SysUser sysUser = sysUserService.queryByUserCode("admin");
         logger.info("朱玉平");
         System.out.println(sysUser);
+    }
+
+    @Resource
+    private  SysMenuDao sysMenuDao;
+
+    @Test
+    public void testMap() throws SQLException {
+        sysMenuDao.queryListByParentId(3);
     }
 }

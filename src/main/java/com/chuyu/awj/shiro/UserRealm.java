@@ -57,7 +57,7 @@ public class UserRealm extends AuthorizingRealm{
             List<String> permsList = null;
             //系统管理员拥有最高权限
             if (userCode.equals(sysAdminCode)){
-                List<SysMenu> menuList = sysMenuService.queryListParentId(null);
+                List<SysMenu> menuList = sysMenuService.queryListByParentId(null);
                 permsList = new ArrayList<>(menuList.size());
                 for (SysMenu sysMenu:menuList) {
                     permsList.add(sysMenu.getPerms());
@@ -87,7 +87,7 @@ public class UserRealm extends AuthorizingRealm{
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String userName = (String) token.getCredentials();
+        String userName = (String) token.getPrincipal();
         String password = new String((char[])token.getCredentials());
         //查询用户信息
         try {

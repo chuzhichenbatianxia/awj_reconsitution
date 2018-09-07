@@ -7,5 +7,6 @@
                            ">
     <import resource="classpath:awj-config.xml"/>
     <import resource="classpath:spring-shiro.xml"/>
+    <import resource="classpath:ehcache-config.xml"/>
     <context:component-scan base-package="com.chuyu.awj"/>
 </beans>

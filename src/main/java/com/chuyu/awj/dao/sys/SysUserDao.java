@@ -23,7 +23,13 @@ public class SysUserDao {
 
     public List<String> queryAllPerms(String userCode) throws SQLException {
         String sql ="select m.perms from sys_role_user ur LEFT JOIN sys_role_menu rm on ur.roleId = rm.roleId LEFT JOIN sys_menu m on rm.menuId = m.menuId  where ur.userCode = "+SqlUtil.sqlValue(userCode);
-        ColumnListHandler<String> h= new ColumnListHandler<String>();
+        ColumnListHandler<String> h= new ColumnListHandler<>();
+        return DaoUtil.query(dbId,sql,h);
+    }
+
+    public List<Integer> queryAllMenuId(String userCode) throws SQLException {
+        String sql ="select m.menuId from sys_role_user ur LEFT JOIN sys_role_menu rm on ur.roleId = rm.roleId LEFT JOIN sys_menu m on rm.menuId = m.menuId  where ur.userCode = "+SqlUtil.sqlValue(userCode);
+        ColumnListHandler<Integer> h= new ColumnListHandler<>();
         return DaoUtil.query(dbId,sql,h);
     }
 }

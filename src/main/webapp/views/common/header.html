@@ -4,22 +4,7 @@
     </div>
     <div class="header-right">
         <ul>
-            <li class="m-r-5"><p>欢迎 <span class="userName">${shiro.getUser().userName}(${shiro.getUser().account})</span> 登录！</p></li>
-            <% if(isNotEmpty(custom_schools)){ %>
-            <li>
-                <div class="dropdown">
-                    当前学校：
-                    <a href="#" class="dropdown-toggle" id="currentSchool" data-value="${custom_schools[0].schoolId}" data-toggle="dropdown">
-                        ${custom_selected_school!"全部"}
-                    </a>
-                    <ul id="schoolLists" class="dropdown-menu">
-                        <% for(custom_school in custom_schools){ %>
-                        <li data-value="${custom_school.schoolId}"><a href="javascript:void(0);">${custom_school.schoolName}</a></li>
-                        <% }%>
-                    </ul>
-                </div>
-            </li>
-            <% }%>
+            <li class="m-r-5"><p>欢迎 <span class="userName">${shiro.getUser().userName}(${shiro.getUser().userCode})</span> 登录！</p></li>
             <li>
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

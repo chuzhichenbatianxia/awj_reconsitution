@@ -37,7 +37,7 @@ public class LoginController {
      * 登录
      */
     @ResponseBody
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/sso/login",method = RequestMethod.POST)
     public R login(String username, String password, String captcha){
         String kaptcha = "";
         try {
