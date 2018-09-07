@@ -29,10 +29,11 @@ var contentSection={ %>
         <div class="fastEnter">
             <div class="title">
                 <h4>快速入口</h4>
+                <button onclick="test()" value="测试"/>
             </div>
             <ul class="fastEnterLists clearfix">
                 <li>
-                    <a href="${ctxPath}/base/datacount.html">
+                    <a href="javascript:test()">
                         <p class="fast-menu-sub">数据统计</p>
                         <p class="fast-menu">基础数据</p>
                         <i class="fa fa-ravelry"></i>
@@ -107,6 +108,17 @@ var scriptSection={
 <!--引入脚本开始-->
 <script src="${ctxPath}/statics/libs/particles/js/particles.min.js"></script>
 <script src="${ctxPath}/statics/js/index.js"></script>
+<script type="text/javascript" src="${ctxPath}/dwr/engine.js"></script>
+<script type="text/javascript" src="${ctxPath}/dwr/util.js"></script>
+<script type="text/javascript" src="${ctxPath}/dwr/interface/TestAjax.js"></script>
+<script>
+    function test() {
+        alert("周静是");
+        TestAjax.getName(function (date) {
+            alert(date.message)
+        });
+    }
+</script>
 <!--引入脚本结束-->
 <%};%>
 

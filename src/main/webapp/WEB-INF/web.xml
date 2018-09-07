@@ -68,6 +68,20 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!-- 配置dwr -->
+  <servlet>
+    <servlet-name>dwr</servlet-name>
+    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dwr</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>druidStatusView</servlet-name>
     <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>

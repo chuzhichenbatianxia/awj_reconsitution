@@ -56,6 +56,11 @@
       <artifactId>javax.ws.rs-api</artifactId>
       <version>2.0</version>
     </dependency>
+    <dependency>
+      <groupId>dwr</groupId>
+      <artifactId>dwr</artifactId>
+      <version>3.0.rc3</version>
+    </dependency>
     <!--mq beging-->
     <!--<dependency>-->
     <!--<groupId>org.apache.activemq</groupId>-->
